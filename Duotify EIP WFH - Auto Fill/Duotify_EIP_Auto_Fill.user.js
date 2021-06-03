@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name            Duotify_EIP_Auto_Fill
-// @version         1.41
+// @version         1.414
 // @description     自動勾
 // @author          Ari Su
-// @match           https://duotify-eip.azurewebsites.net/staff/work-from-home/create
+// @match           https://duotify-eip.azurewebsites.net/staff/work-from-home/*
 // @grant           GM_setValue
 // @grant           GM_getValue
 // @grant           GM_deleteValue
@@ -17,6 +17,7 @@
   const timer = setInterval(chkSPA, 500);
 
   function chkSPA() {
+    if (document.location.pathname !== "/staff/work-from-home/create") return;
     allMember = $(".mat-checkbox-layout");
     if (allMember.length <= 1) return;
     clearInterval(timer);
