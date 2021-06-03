@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Duotify_EIP_Auto_Fill
-// @version         1.414
+// @version         1.4142
 // @description     自動勾
 // @author          Ari Su
 // @match           https://duotify-eip.azurewebsites.net/*
@@ -94,6 +94,9 @@
       eHour = work8hour.getHours(),
       minute = (Math.floor(now.getMinutes() / 15) + 1) * 15;
 
+    sHour = sHour < 8 ? 8 : sHour;
+    eHour = eHour > 22 ? 22 : eHour;
+
     if (minute === 60) {
       sHour++;
       eHour++;
@@ -103,7 +106,9 @@
     template = template.replace(a, `今天(${date})申請在家上班。`);
     template = template.replace(
       b,
-      `工作時段為 ${sHour}:${minute} ~ ${eHour}:${minute} 共計 8 小時`
+      `工作時段為 ${sHour}:${minute} ~ ${eHour}:${minute} 共計 ${
+        eHour - sHour
+      } 小時`
     );
     $(".mat-form-field-infix textarea").val(template);
     $("input[ng-reflect-name=hours]").val(8);
