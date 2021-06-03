@@ -106,8 +106,7 @@
       `工作時段為 ${sHour}:${minute} ~ ${eHour}:${minute} 共計 8 小時`
     );
     $(".mat-form-field-infix textarea").val(template);
-
-    $("#mat-input-1").val(8);
+    $("input[ng-reflect-name=hours]").val(8);
 
     const dateDDL = $("mat-select");
     $.each(dateDDL, function (idx, ele) {
