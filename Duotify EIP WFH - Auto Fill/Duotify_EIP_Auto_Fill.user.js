@@ -81,9 +81,10 @@
   function fillTemplate() {
     const a = /今天\(\d{4}\/\d{2}\/\d{2}\)申請在家上班。/;
     const b =
-      /工作時段為\s*\S{1,4}:\S{1,4}\s*~\s*\S{1,4}:\S{1,4}\s*共計\s*\S{1,4}\s小時/;
+      /工作時段為\s*\S{1,4}:\S{1,4}\s*~\s*\S{1,4}:\S{1,4}\s*共計\s*\S{1,4}\s*小時/;
     let template = GM_readTemplate();
     const date = $("#mat-input-0").val();
+
     let now = new Date(),
       work8hour = new Date();
     work8hour.setHours(now.getHours() + 9);
