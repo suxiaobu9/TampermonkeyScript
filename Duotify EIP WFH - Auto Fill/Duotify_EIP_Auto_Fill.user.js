@@ -3,7 +3,7 @@
 // @version         1.414
 // @description     自動勾
 // @author          Ari Su
-// @match           https://duotify-eip.azurewebsites.net/staff/work-from-home/*
+// @match           https://duotify-eip.azurewebsites.net/*
 // @grant           GM_setValue
 // @grant           GM_getValue
 // @grant           GM_deleteValue
@@ -14,7 +14,7 @@
   "use strict";
 
   let allMember = [];
-  const timer = setInterval(chkSPA, 500);
+  const timer = setInterval(chkSPA, 1000);
 
   function chkSPA() {
     if (document.location.pathname !== "/staff/work-from-home/create") return;
