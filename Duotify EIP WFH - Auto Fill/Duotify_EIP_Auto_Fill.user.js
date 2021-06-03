@@ -122,7 +122,7 @@
           break;
         case 1:
         case 3:
-          optionTarget = optionTarget - 4 + (minute % 15);
+          optionTarget = optionTarget - 4 + minute / 15;
           break;
         default:
           break;
