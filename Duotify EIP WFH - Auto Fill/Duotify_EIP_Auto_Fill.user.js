@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Duotify_EIP_Auto_Fill
-// @version         2
+// @version         2.1
 // @description     自動勾
 // @author          Ari Su
 // @match           https://duotify-eip.azurewebsites.net/*
@@ -86,7 +86,7 @@
     let template = GM_readTemplate();
     const date = $("input[ng-reflect-name=date]").val();
 
-    let now = new Date(2021, 6, 4, 9, 2, 10);
+    let now = new Date();
 
     let sHour = now.getHours(),
       minute = (Math.floor(now.getMinutes() / 15) + 1) * 15;
