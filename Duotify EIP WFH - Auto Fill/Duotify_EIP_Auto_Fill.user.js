@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Duotify_EIP_Auto_Fill
-// @version         1.41421
+// @version         2
 // @description     自動勾
 // @author          Ari Su
 // @match           https://duotify-eip.azurewebsites.net/*
@@ -84,30 +84,27 @@
     const b =
       /工作時段為\s*\S{1,4}:\S{1,4}\s*~\s*\S{1,4}:\S{1,4}\s*共計\s*\S{1,4}\s*小時/;
     let template = GM_readTemplate();
-    const date = $("#mat-input-0").val();
+    const date = $("input[ng-reflect-name=date]").val();
 
-    let now = new Date(),
-      work8hour = new Date();
-    work8hour.setHours(now.getHours() + 9);
+    let now = new Date(2021, 6, 4, 9, 2, 10);
 
     let sHour = now.getHours(),
-      eHour = work8hour.getHours(),
       minute = (Math.floor(now.getMinutes() / 15) + 1) * 15;
 
     if (minute === 60) {
       sHour++;
-      eHour++;
       minute = 0;
     }
 
-    sHour = sHour < 8 ? 8 : sHour;
-    eHour = eHour > 22 ? 22 : eHour;
+    let eHour = sHour + 9;
+
+    if (eHour > 22) return;
 
     template = template.replace(a, `今天(${date})申請在家上班。`);
     template = template.replace(
       b,
       `工作時段為 ${sHour}:${minute} ~ ${eHour}:${minute} 共計 ${
-        eHour - sHour
+        eHour - sHour - 1
       } 小時`
     );
     $(".mat-form-field-infix textarea").val(template);
