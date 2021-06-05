@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Duotify_EIP_Auto_Fill
-// @version         3
+// @version         3.1
 // @description     自動勾
 // @author          Ari Su
 // @match           https://duotify-eip.azurewebsites.net/*
