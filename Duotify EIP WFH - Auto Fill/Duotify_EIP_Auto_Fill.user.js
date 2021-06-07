@@ -107,8 +107,8 @@
         eHour - sHour - 1
       } 小時`
     );
-    $(".mat-form-field-infix textarea").val(template);
-    $("input[ng-reflect-name=hours]").val(8);
+    // $(".mat-form-field-infix textarea").val(template);
+    // $("input[ng-reflect-name=hours]").val(8);
 
     const dateDDL = $("mat-select");
     $.each(dateDDL, function (idx, ele) {
