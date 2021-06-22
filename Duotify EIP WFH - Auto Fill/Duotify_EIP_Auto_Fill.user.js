@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Duotify_EIP_Auto_Fill
-// @version         3.1
+// @version         3.2
 // @description     自動勾
 // @author          Ari Su
 // @match           https://duotify-eip.azurewebsites.net/*
@@ -107,8 +107,10 @@
         eHour - sHour - 1
       } 小時`
     );
-    // $(".mat-form-field-infix textarea").val(template);
-    // $("input[ng-reflect-name=hours]").val(8);
+
+    document.querySelector("textarea.mat-input-element").select();
+    document.execCommand("copy");
+    document.querySelector("textarea.mat-input-element").value = "";
 
     const dateDDL = $("mat-select");
     $.each(dateDDL, function (idx, ele) {
