@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Duotify_EIP_Auto_Fill
-// @version         3.2
+// @version         3.3
 // @description     自動勾
 // @author          Ari Su
 // @match           https://duotify-eip.azurewebsites.net/*
@@ -108,6 +108,7 @@
       } 小時`
     );
 
+    document.querySelector("textarea.mat-input-element").value = template;
     document.querySelector("textarea.mat-input-element").select();
     document.execCommand("copy");
     document.querySelector("textarea.mat-input-element").value = "";
