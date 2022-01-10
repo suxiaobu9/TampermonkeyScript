@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Duotify_EIP_Auto_Fill
-// @version         3.3
+// @version         3.4
 // @description     自動勾
 // @author          Ari Su
 // @match           https://duotify-eip.azurewebsites.net/*
@@ -108,11 +108,6 @@
       } 小時`
     );
 
-    document.querySelector("textarea.mat-input-element").value = template;
-    document.querySelector("textarea.mat-input-element").select();
-    document.execCommand("copy");
-    document.querySelector("textarea.mat-input-element").value = "";
-
     const dateDDL = $("mat-select");
     $.each(dateDDL, function (idx, ele) {
       $(ele).click();
@@ -135,6 +130,10 @@
       }
       allMatOptions[optionTarget].click();
     });
+
+    document.querySelector("textarea.mat-input-element").value = template;
+    document.querySelector("textarea.mat-input-element").select();
+
   }
 
   function GM_readMember() {
