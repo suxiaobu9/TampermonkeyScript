@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         twitch auto get bonus
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  twitch auto get bonus
 // @author       Ari Su
 // @match        https://www.twitch.tv/*
@@ -13,7 +13,7 @@
   "use strict";
   setInterval(function () {
     let btn = document.querySelector(
-      "aside section div[class^=ScTransitionBase] button[class^=ScCoreButton]"
+      "aside section div[class^=ScTransitionBase] button[class^=ScCoreButton][class*=ScCoreButtonSuccess]"
     );
 
     if (btn) {
