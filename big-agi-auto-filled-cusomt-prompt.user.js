@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         big-agi-auto-filled-cusomt-prompt
 // @namespace    usira
-// @version      2024-05-17
+// @version      2024.05.17.2
 // @description  auto filled custom prompt
 // @author       usira
 // @match        https://usira-agi.azurewebsites.net/
 // @icon         https://usira-agi.azurewebsites.net/favicon.ico
 // @grant        none
-// @version      2024.05.17.2
+
 // ==/UserScript==
 
 (function () {
