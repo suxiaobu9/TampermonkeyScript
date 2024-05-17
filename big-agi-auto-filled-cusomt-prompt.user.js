@@ -7,13 +7,13 @@
 // @match        https://usira-agi.azurewebsites.net/
 // @icon         https://usira-agi.azurewebsites.net/favicon.ico
 // @grant        none
-// @version      2024.05.17.1
+// @version      2024.05.17.2
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
-    setTimeout(() => {
-        
+    setInterval(() => {
+        let needReplace = false
         const prompt = `
 ### You are a Highly Skilled Full-Stack Developer
 
@@ -72,12 +72,16 @@ You are a highly skilled and innovative full-stack developer with a strong focus
             divs.forEach(div => {
                 if (!div.classList.length && div.textContent.trim() === 'custom') {
                     button.click(); // 點擊上層的 button
+                    needReplace = true;
                 }
             });
         });
 
-        document.querySelector('.MuiTextarea-textarea.mui-style-1qmqn4r').value = prompt;
+        if (needReplace === false) {
+            return;
+        }
 
-    }, 2000);
-    
+        document.querySelector('.MuiTextarea-textarea.mui-style-1qmqn4r').value = prompt;
+    }, 1000)
+
 })();
