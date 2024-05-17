@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         big-agi-auto-filled-cusomt-prompt
 // @namespace    usira
-// @version      2024.05.17.2
+// @version      2024.05.17.3
 // @description  auto filled custom prompt
 // @author       usira
 // @match        https://usira-agi.azurewebsites.net/
@@ -70,7 +70,8 @@ You are a highly skilled and innovative full-stack developer with a strong focus
         buttons.forEach(button => {
             const divs = button.querySelectorAll('div');
             divs.forEach(div => {
-                if (!div.classList.length && div.textContent.trim() === 'custom') {
+                if (!div.classList.length && div.textContent.toLowerCase().trim() === 'custom') {
+                    console.log('click');
                     button.click(); // 點擊上層的 button
                     needReplace = true;
                 }
@@ -81,7 +82,16 @@ You are a highly skilled and innovative full-stack developer with a strong focus
             return;
         }
 
-        document.querySelector('.MuiTextarea-textarea.mui-style-1qmqn4r').value = prompt;
+        let textArea = document.querySelector('.MuiTextarea-textarea.mui-style-1qmqn4r');
+
+        if (textArea.value === prompt) {
+            return;
+        }
+
+        console.log('replace');
+
+        textArea.value = prompt;
+
     }, 1000)
 
 })();
